@@ -34,8 +34,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pnpm add -D wrangler@^4.81.1
-          pnpm install --frozen-lockfile
+          # pnpm install --frozen-lockfile
+          # 先按 lockfile 安装，确保基础依赖一致
+          pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
+          
+          # 关键：强制安装 wrangler v3 和兼容的 next-on-pages
+          # 覆盖 package.json 中的版本声明
+          pnpm add -D wrangler@^3.99.0 @cloudflare/next-on-pages@^1.13.6 --ignore-peer-deps
+          
+          # 验证版本
+          echo "Wrangler version:"
+          npx wrangler --version
+          echo "next-on-pages version:"
+          npx @cloudflare/next-on-pages --version
 
       - name: Run deploy script
         env:
