@@ -1,0 +1,41 @@
+1、注册域名
+	qzz.io
+	
+2、托管cloudflare（域名解析）
+	等待解析完成
+	
+3、创建moemail项目、邮箱KV、D1数据库以及API令牌
+	moemail项目 account ID：
+	KV存储：
+		name：
+		id：
+	D1数据库：
+		name：
+		id：
+	API令牌：
+	
+4、fork项目仓库，配置github参数
+	Application name：
+	Homepage URL：
+	Authorization callback URL：
+	Client ID：
+	Client secrets：
+
+5、连接cloudflare邮箱（page参数设置）
+	AUTH_GITHUB_ID：4、Client ID
+	AUTH_GITHUB_SECRET：4、Client ID
+	AUTH_SECRET（参数加密密钥）：
+
+6、moemail项目action配置
+	CLOUDFLARE_API_TOKEN：3、API令牌
+	CLOUDFLARE_ACCOUNT_ID：3、moemail项目ID
+	DATABASE_NAME：3、D1数据库-name
+	DATABASE_ID：3、D1数据库-id
+	KV_NAMESPACE_NAME：3、KV存储-name
+	KV_NAMESPACE_ID：3、KV存储-id
+
+7、启动 启动 启动，新皇登基！！！
+	获取最高管理员权限
+		https://域名/api/roles/init-emperor
+	
+8、收发件测试
